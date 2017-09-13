@@ -1,11 +1,13 @@
 package com.example.vkal.demoapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -16,14 +18,27 @@ import java.util.List;
 
 public class GraphList extends AppCompatActivity {
 
+    private ListView list;
     private List<Graph> graphs = new ArrayList<Graph>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph_list);
+        list = (ListView) findViewById(R.id.graphList);
         populateList();
         populateGraphList();
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i==0) {
+                    Intent intent = new Intent(getApplicationContext(), BarActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                }
+            }
+        });
     }
 
     private void populateList(){
@@ -34,7 +49,6 @@ public class GraphList extends AppCompatActivity {
 
     private void populateGraphList(){
         ArrayAdapter<Graph> adapter = new GraphAdapter();
-        ListView list = (ListView) findViewById(R.id.graphList);
         list.setAdapter(adapter);
     }
 
