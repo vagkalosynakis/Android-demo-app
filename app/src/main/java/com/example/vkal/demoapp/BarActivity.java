@@ -3,6 +3,7 @@ package com.example.vkal.demoapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;

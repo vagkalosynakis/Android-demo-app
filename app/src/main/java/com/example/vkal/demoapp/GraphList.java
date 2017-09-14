@@ -36,6 +36,14 @@ public class GraphList extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), BarActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                }else if (i==1) {
+                    Intent intent = new Intent(getApplicationContext(), LineActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                }else{
+                    Intent intent = new Intent(getApplicationContext(), PieActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             }
         });
